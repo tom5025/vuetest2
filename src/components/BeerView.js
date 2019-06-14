@@ -56,6 +56,6 @@ export default {
         ],
         //switch        
         switchOnlyAboveSevenPct:false,  
-        maltType:"Extra_Pale"          
+        maltType:"Extra Pale"          
       }),         
   };

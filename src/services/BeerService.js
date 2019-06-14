@@ -13,8 +13,7 @@ export default class BeerService
      */
     async getBeers (skip, rowsPerPage, maltType, alcoholByVol)
     {
-        maltType.replace(' ', '_');                      
-        console.log("ok");        
+        maltType = maltType.replace(' ', '_');                                   
         return await Axios.get(`https://api.punkapi.com/v2/beers?page=${skip}&per_page=${rowsPerPage}&malt=${maltType}${alcoholByVol!==0?"&abv_gt="+alcoholByVol:""}`); //        
     }
 }
