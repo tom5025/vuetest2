@@ -21,6 +21,7 @@
                 <td><img class='row col-md-1 thumbnail img-responsive img-fluid' :src='props.item.image_url' /></td>             
             </template>
         </v-data-table>
+        <v-pagination v-model='pagination.page' :length='pagination.pages'></v-pagination>
     </div>
 </template>
 <script src="./BeerView.js">

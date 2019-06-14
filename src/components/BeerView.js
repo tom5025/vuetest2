@@ -18,13 +18,14 @@ export default {
             this.pagination.page = 1;
             await LoadData(this);
           },
-          pagination:
+          "pagination.page":
           {
             async handler()
             {
               await LoadData(this);  
             }
           }
+          
       },
       async mounted () {          
           await LoadData(this);          
@@ -44,7 +45,8 @@ export default {
         pagination: {
           sortBy: 'name',
           page:1,
-          rowsPerPage:5,          
+          rowsPerPage:5,        
+          pages:5  
         },
         headers: [   
           { text: 'Name', value: 'name' },     

@@ -20,7 +20,8 @@ import Vuetify, {
     VToolbarTitle,
     VSpacer,
     VToolbarItems,
-    VBtn
+    VBtn,
+    VPagination
 } from 'vuetify/lib';
 import { Ripple } from 'vuetify/lib/directives';
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
@@ -39,7 +40,8 @@ Vue.use(Vuetify, {
         VToolbarTitle,
         VSpacer,
         VToolbarItems,
-        VBtn
+        VBtn,
+        VPagination
     }
     ,
     directives: {
