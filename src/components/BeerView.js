@@ -1,34 +1,32 @@
 import BeerService from '../services/BeerService';
 
-/**
- * Load data from the beer service
- * @param {view data} ctx context
- */
-async function LoadData(ctx) {
-    let svc = new BeerService();
-    const res = await svc.getBeers(ctx.pagination.page, ctx.pagination.rowsPerPage, ctx.maltType, ctx.switchOnlyAboveSevenPct ? 7 : 0);
-    ctx.items = res.data;
-}
 
-export default {
+export default {     
       name :'BeerView',
       watch:
       {
+          /**
+           * called when we change the seven pct switch
+           * @param {boolean} newValue 
+           */
           async switchOnlyAboveSevenPct(newValue){
             this.pagination.page = 1;
-            await LoadData(this);
-          },
+            await this.LoadData(this);
+          },          
           "pagination.page":
           {
             async handler()
             {
-              await LoadData(this);  
+              await this.LoadData(this);  
             }
           }
           
       },
+      /**
+       * When the Vue instance is mounted
+       */
       async mounted () {          
-          await LoadData(this);          
+          await this.LoadData(this);          
       },
       computed: {
             pages() {
@@ -38,7 +36,15 @@ export default {
                 return 100
             }
       },      
-      data: () => ({      
+      data: () => ({ 
+        /**
+        * Load data from the beer service
+        */
+        async  LoadData() {
+          let svc = new BeerService();
+          const res = await svc.getBeers(this.pagination.page, this.pagination.rowsPerPage, this.maltType, this.switchOnlyAboveSevenPct ? 7 : 0);
+          this.items = res.data;
+        },    
         search: '',
         // totalItems: 0,
         items: [],
