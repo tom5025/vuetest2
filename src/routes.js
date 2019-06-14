@@ -1,4 +1,5 @@
-const BeerView = () => import('@/components/BeerView');
+import BeerView from "./components/BeerView.vue";
+//const BeerView = () => import('@/components/BeerView.vue');
 
 const routes = [
     {
