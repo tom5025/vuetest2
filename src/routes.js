@@ -1,4 +1,4 @@
-import BeerView from "./components/BeerView.vue";
+import BeerView from "@/Views/BeerView.vue";
 //const BeerView = () => import('@/components/BeerView.vue');
 
 const routes = [
